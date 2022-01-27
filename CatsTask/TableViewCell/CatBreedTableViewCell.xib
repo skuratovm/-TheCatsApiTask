@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,28 +44,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fli-yi-y08">
-                        <rect key="frame" x="148" y="13" width="42" height="42"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="42" id="0Tq-9g-l84"/>
-                            <constraint firstAttribute="width" constant="42" id="s0U-D7-HLF"/>
-                        </constraints>
-                        <state key="normal">
-                            <imageReference key="image" image="star" catalog="system" renderingMode="original"/>
-                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                        </state>
-                        <connections>
-                            <action selector="isFavoriteButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cp6-ky-KSQ"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="qhA-0d-bq4" firstAttribute="leading" secondItem="7NS-yf-z5P" secondAttribute="trailing" constant="16" id="A6i-sz-Rre"/>
                     <constraint firstItem="Eo2-YK-vGq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-35" id="EEK-vd-tik"/>
-                    <constraint firstItem="Eo2-YK-vGq" firstAttribute="leading" secondItem="fli-yi-y08" secondAttribute="trailing" constant="28" id="GGS-eq-wL3"/>
                     <constraint firstAttribute="trailing" secondItem="Eo2-YK-vGq" secondAttribute="trailing" constant="20" symbolic="YES" id="M3n-fq-X4e"/>
-                    <constraint firstItem="fli-yi-y08" firstAttribute="leading" secondItem="7NS-yf-z5P" secondAttribute="trailing" constant="16" id="PGa-Fd-rJz"/>
-                    <constraint firstItem="qhA-0d-bq4" firstAttribute="top" secondItem="fli-yi-y08" secondAttribute="bottom" id="aC0-mL-Sp4"/>
                     <constraint firstItem="7NS-yf-z5P" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-1" id="fij-p6-zHm"/>
                     <constraint firstAttribute="bottom" secondItem="qhA-0d-bq4" secondAttribute="bottom" constant="13" id="fr7-b9-wOe"/>
                     <constraint firstItem="7NS-yf-z5P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="hoJ-Hl-T3r"/>
@@ -77,12 +60,8 @@
                 <outlet property="catBreedLabel" destination="Eo2-YK-vGq" id="RzO-xR-FD7"/>
                 <outlet property="catImageView" destination="7NS-yf-z5P" id="5LL-hb-0RG"/>
                 <outlet property="descriptionLabel" destination="qhA-0d-bq4" id="8BE-wk-InC"/>
-                <outlet property="favoriteButtonOutlet" destination="fli-yi-y08" id="kYT-2O-DOw"/>
             </connections>
             <point key="canvasLocation" x="202.89855072463769" y="198.88392857142856"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="star" catalog="system" width="128" height="116"/>
-    </resources>
 </document>
