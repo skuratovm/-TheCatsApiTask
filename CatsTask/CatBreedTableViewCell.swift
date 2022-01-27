@@ -6,7 +6,11 @@
 //
 import UIKit
 
+
 class CatBreedTableViewCell: UITableViewCell {
+    //var anyCancelable = Set<AnyCancellable>()
+    //let viewModel = CatsViewModel()
+    
     var resultll: CatsModel?
     var isFavorite = false
     var indexPathRR :IndexPath = []
@@ -63,37 +67,59 @@ class CatBreedTableViewCell: UITableViewCell {
             catImageView.image = #imageLiteral(resourceName: "Cat-18.jpeg")
         }
     }
+    //func configureImage
     
-    func configureCell(breedText: String,imageURL: String,descriptionText: String) {
+    func configureCell(with cat: CatsModelElement) {
         //let image = UIImage(data: data)
+        let imageURLString = cat.image?.url
+    
+       
+        //viewModel.fetchImages(urlString: imageURLString!)
+        //fetchImages(urlString: imageURLString!)
+       
         
-        configureImage(imageURLString: imageURL)
-        catBreedLabel.text = breedText
-        descriptionLabel.text = descriptionText
+        
+        configureImage(imageURLString: imageURLString)
+        catBreedLabel.text = cat.name
+        descriptionLabel.text = cat.catsModelDescription
+        //catImageView.image = UIImage(data: cat.image?.url)
     }
+//    private func fetchImages(urlString: String){
+//        let imageURLString = urlString
+//        print(urlString)
+//        viewModel.fetchImages(urlString: imageURLString)
+//        viewModel.$data
+//            .receive(on: DispatchQueue.main)
+//            .sink {[weak self] data in
+//                self?.catImageView.image = UIImage(data: data)
+//            }
+//            .store(in: &anyCancelable)
+//
+//
+//    }
     func configureDB(indexPath: IndexPath, result: CatsModel?){
         //var resultll: CatsModel?
         indexPathRR = indexPath
         resultll = result
         //DataBase.shared.saveSchedule(result: resultll?[indexPathRR.row])
         print("🐰\(resultll)❌")
-        
+
     }
     
-    @IBAction func isFavoriteButtonAction(_ sender: UIButton) {
-        print ("tap")
-        if isFavorite == false{
-            isFavorite = true
-           DataBase.shared.saveSchedule(result: resultll?[indexPathRR.row])
-            print("🍄\(indexPathRR.row)")
-           
-        } else {
-            isFavorite = false
-            DataBase.shared.deleteSchedule(result: resultll?[indexPathRR.row])
-        }
-        
-        configureButton()
-    }
+//    @IBAction func isFavoriteButtonAction(_ sender: UIButton) {
+//        print ("tap")
+//        if isFavorite == false{
+//            isFavorite = true
+//           DataBase.shared.saveSchedule(result: resultll?[indexPathRR.row])
+//            print("🍄\(indexPathRR.row)")
+//
+//        } else {
+//            isFavorite = false
+//            DataBase.shared.deleteSchedule(result: resultll?[indexPathRR.row])
+//        }
+//
+//        configureButton()
+//    }
     func configureButton(){
         if isFavorite == false{
             favoriteButtonOutlet.setImage(UIImage(systemName: "star")?.withRenderingMode(.alwaysOriginal), for: .normal)

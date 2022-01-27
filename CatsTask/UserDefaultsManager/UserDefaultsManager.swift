@@ -25,11 +25,12 @@ class DataBase{
             }
         }
     }
-    func saveSchedule(result: CatsModelElement?){
+    func saveSchedule(result: CatsModelElement?,row: Int){
 
         cats?.insert(result!, at: 0)
     }
-    func deleteSchedule(result: CatsModelElement?){
-        cats?.remove(at: 0)
+    func deleteSchedule(result: CatsModelElement?,row: Int){
+        cats?.remove(at: row)
+        
     }
 }
