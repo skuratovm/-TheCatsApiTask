@@ -6,13 +6,10 @@
 //
 
 import UIKit
-//import Combine
 
 class FavotitesViewController: UIViewController {
-
+    
     var resultMemoryArray = DataBase.shared.cats
-   // let viewModel = CatsViewModel()
-    //var anyCancelable = Set<AnyCancellable>()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -33,11 +30,11 @@ class FavotitesViewController: UIViewController {
     @objc func showAlertP(_ notification: Notification){
         showAlert(imageURL: notification.object as! String) { (_) in
             print("save \(notification.object as! String)")
-
+            
             var imageURLString = notification.object as! String
             ImageDownloader.shared.download(urlString: notification.object as! String)
         }
-
+        
     }
     
 }
@@ -45,17 +42,17 @@ extension FavotitesViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return resultMemoryArray?.count ?? 0
     }
-
+    
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! CatBreedTableViewCell
-         
+        
         cell.configureCell(with: self.resultMemoryArray![indexPath.row])
         cell.configureDB(indexPath: indexPath, result: resultMemoryArray)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 136.0
-       
+        
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let removeFromFavorites = self.removeFromFavorites(rowIndexPathAt: indexPath)

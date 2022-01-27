@@ -17,11 +17,6 @@ class ViewController: UIViewController {
     let viewModel = CatsViewModel()
     var fetchingMore = false
     var page = 0
-    //    var result: CatsModel?
-//    var limit = 20
-//    var total  = 100
-    //var favoriteClicker[Int:Bool]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +28,6 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(showExportSheet), name: Notification.Name("export"), object: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        //fetchSchedule()
-    }
     private func fetchCats(page: Int) {
         viewModel.fetchCats(page: page)
         viewModel.$cats
@@ -53,20 +45,16 @@ class ViewController: UIViewController {
     @objc func showAlertP(_ notification: Notification){
         showAlert(imageURL: notification.object as! String) { (_) in
             print("save \(notification.object as! String)")
-
+            
             ImageDownloader.shared.download(urlString: notification.object as! String)
         }
-
+        
     }
     
-    
-    @IBAction func favouritesButtonAction(_ sender: UIBarButtonItem) {
-
-    }
     @IBAction func refreshCatsButtonAction(_ sender: UIBarButtonItem) {
         fetchCats(page:0)
     }
-
+    
 }
 extension ViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,9 +70,6 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource{
                 cell.configureDB(indexPath: indexPath, result: cats)
             }
             .store(in: &anyCancelable)
-        
-            
-       
         return cell
         
     }
@@ -111,10 +96,10 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource{
                 }
                 .store(in: &self.anyCancelable)
             self.tableView.reloadData()
-                }
-        //self.tableView.reloadData()
-           return action
         }
+        //self.tableView.reloadData()
+        return action
+    }
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -124,6 +109,8 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource{
         if offsetY > contentHeight - scrollView.frame.height {
             if !fetchingMore {
                 
+                page += 1
+                fetchCats(page: page)
                 
                 fetchingMore = true
             }

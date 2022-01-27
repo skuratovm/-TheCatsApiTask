@@ -5,12 +5,6 @@
 //  Created by Mikhail Skuratov on 24.01.22.
 //
 
-
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let CatsModelElement = try? newJSONDecoder().decode(CatsModelElement.self, from: jsonData)
-
 import Foundation
 
 // MARK: - CatsModelElement
