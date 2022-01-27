@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4009F85D27A2883300DA8E84 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4009F85C27A2883300DA8E84 /* ImageDownloader.swift */; };
 		400BF74D279EA9A7003905E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BF74C279EA9A7003905E0 /* AppDelegate.swift */; };
 		400BF74F279EA9A7003905E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BF74E279EA9A7003905E0 /* SceneDelegate.swift */; };
 		400BF751279EA9A7003905E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BF750279EA9A7003905E0 /* ViewController.swift */; };
@@ -24,11 +23,11 @@
 		4027C4F927A0C2A500CF22EE /* CatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027C4F827A0C2A500CF22EE /* CatsViewModel.swift */; };
 		4027C4FB27A0C53500CF22EE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027C4FA27A0C53500CF22EE /* NetworkManager.swift */; };
 		4027C4FF27A17B9D00CF22EE /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027C4FE27A17B9D00CF22EE /* ImageLoader.swift */; };
+		4072AB2627A2AA41009F9261 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072AB2527A2AA41009F9261 /* ImageDownloader.swift */; };
 		40A99E3D279F708200039A43 /* DownloadAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A99E3C279F708200039A43 /* DownloadAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4009F85C27A2883300DA8E84 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = ../../ImageDownloader.swift; sourceTree = "<group>"; };
 		400BF749279EA9A7003905E0 /* CatsTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		400BF74C279EA9A7003905E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		400BF74E279EA9A7003905E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		4027C4F827A0C2A500CF22EE /* CatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsViewModel.swift; sourceTree = "<group>"; };
 		4027C4FA27A0C53500CF22EE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4027C4FE27A17B9D00CF22EE /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		4072AB2527A2AA41009F9261 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		40A99E3C279F708200039A43 /* DownloadAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,8 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				4027C4FA27A0C53500CF22EE /* NetworkManager.swift */,
-				4009F85C27A2883300DA8E84 /* ImageDownloader.swift */,
 				400BF767279EB21C003905E0 /* NetworkRequest.swift */,
+				4072AB2527A2AA41009F9261 /* ImageDownloader.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -242,8 +242,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				400BF751279EA9A7003905E0 /* ViewController.swift in Sources */,
-				4009F85D27A2883300DA8E84 /* ImageDownloader.swift in Sources */,
 				4027C4FF27A17B9D00CF22EE /* ImageLoader.swift in Sources */,
+				4072AB2627A2AA41009F9261 /* ImageDownloader.swift in Sources */,
 				4027C4F927A0C2A500CF22EE /* CatsViewModel.swift in Sources */,
 				400BF779279EB94A003905E0 /* FavotitesViewController.swift in Sources */,
 				400BF74D279EA9A7003905E0 /* AppDelegate.swift in Sources */,
