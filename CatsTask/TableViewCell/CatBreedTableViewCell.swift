@@ -56,12 +56,9 @@ class CatBreedTableViewCell: UITableViewCell {
                     let image = UIImage(data: data)
                     self?.catImageView.image = image
                 case .failure(let error):
-                    self?.catImageView.image = #imageLiteral(resourceName: "Cat-18.jpeg")
                     print("No Image :\(error.localizedDescription)")
                 }
             }
-        } else {
-            //catImageView.image = #imageLiteral(resourceName: "Cat-18.jpeg")
         }
     }
     //func configureImage
@@ -81,10 +78,7 @@ class CatBreedTableViewCell: UITableViewCell {
         indexPathRR = indexPath
         resultll = result
         
-        print("🐰\(resultll)❌")
-        
     }
-    
     func configureButton(){
         if isFavorite == false{
             favoriteButtonOutlet.setImage(UIImage(systemName: "star")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -93,7 +87,4 @@ class CatBreedTableViewCell: UITableViewCell {
             favoriteButtonOutlet.setImage(UIImage(systemName: "star.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
         }
     }
-    
-    
-    
 }

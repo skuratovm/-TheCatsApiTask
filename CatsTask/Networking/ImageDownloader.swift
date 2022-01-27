@@ -23,7 +23,7 @@ class ImageDownloader {
                 //
                 if let image = image {
                     if let data = image.jpegData(compressionQuality: 1.0) {
-                        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("cat.jpg")
+                        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("cat\(arc4random()).jpg")
                         try? data.write(to: path!)
                         NotificationCenter.default.post(name: Notification.Name("export"), object: path)
                     }

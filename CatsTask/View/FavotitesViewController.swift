@@ -69,9 +69,6 @@ extension FavotitesViewController: UITableViewDelegate, UITableViewDataSource{
     private func removeFromFavorites(rowIndexPathAt indexPath: IndexPath) -> UIContextualAction{
         let action = UIContextualAction(style: .destructive, title: "Remove from favorites") { [weak self]_, _, _ in
             guard let self = self else {return}
-//            var result = self.resultMemoryArray
-//            DataBase.shared.deleteSchedule(result: result![indexPath.row], row: indexPath.row)
-//            self.tableView.reloadData()
             var result = self.viewModel.$catsBD
                 .receive(on: DispatchQueue.main)
                 .sink { cats in
@@ -80,14 +77,10 @@ extension FavotitesViewController: UITableViewDelegate, UITableViewDataSource{
                 .store(in: &self.anyCancelable)
             self.tableView.reloadData()
 
-            
         }
-        
         return action
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
-    
 }
