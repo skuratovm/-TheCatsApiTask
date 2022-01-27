@@ -15,7 +15,7 @@ class CatBreedTableViewCell: UITableViewCell {
     @IBOutlet weak var catImageView: UIImageView!{
         didSet{
             catImageView.layer.cornerRadius = 20
-            catImageView.image = #imageLiteral(resourceName: "Cat-18.jpeg")
+            
         }
     }
     
@@ -61,7 +61,7 @@ class CatBreedTableViewCell: UITableViewCell {
                 }
             }
         } else {
-            catImageView.image = #imageLiteral(resourceName: "Cat-18.jpeg")
+            //catImageView.image = #imageLiteral(resourceName: "Cat-18.jpeg")
         }
     }
     //func configureImage

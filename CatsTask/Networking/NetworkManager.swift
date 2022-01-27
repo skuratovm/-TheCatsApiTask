@@ -14,9 +14,9 @@ class NetworkManager{
     
     var anyCancelable = Set<AnyCancellable>()
     
-    func getResults(page: Int) -> AnyPublisher<[CatsModelElement], Error> {
+    func getResults() -> AnyPublisher<[CatsModelElement], Error> {
         
-        let urlString = "https://api.thecatapi.com/v1/breeds?page=\(page)&limit=20"
+        let urlString = "https://api.thecatapi.com/v1/breeds"
         let url = URL(string: urlString)!
         
         let decoder = JSONDecoder()

@@ -16,26 +16,28 @@ class ViewController: UIViewController {
     var cancellable: Cancellable?
     let viewModel = CatsViewModel()
     var fetchingMore = false
-    var page = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CatBreedTableViewCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
-        fetchCats(page: page)
+        fetchCats()
         NotificationCenter.default.addObserver(self, selector: #selector(showAlertP(_:)), name: Notification.Name("image"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showExportSheet), name: Notification.Name("export"), object: nil)
     }
-    
-    private func fetchCats(page: Int) {
-        viewModel.fetchCats(page: page)
+   
+    private func fetchCats() {
+        viewModel.fetchCats()
         viewModel.$cats
             .receive(on: DispatchQueue.main)
             .sink {[weak self] _ in
                 self?.tableView.reloadData()
+                
             }
             .store(in: &anyCancelable)
+        
     }
     @objc func showExportSheet(_ notification: Notification){
         let path = notification.object
@@ -52,16 +54,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func refreshCatsButtonAction(_ sender: UIBarButtonItem) {
-        fetchCats(page:0)
+        fetchCats()
     }
-    
 }
 extension ViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.cats.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! CatBreedTableViewCell
         viewModel.$cats
             .receive(on: DispatchQueue.main)
@@ -99,22 +100,6 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource{
         }
         //self.tableView.reloadData()
         return action
-    }
-    
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.height {
-            if !fetchingMore {
-                
-                page += 1
-                fetchCats(page: page)
-                
-                fetchingMore = true
-            }
-        }
     }
     
     

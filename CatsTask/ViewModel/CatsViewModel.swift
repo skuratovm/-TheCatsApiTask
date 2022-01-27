@@ -11,19 +11,18 @@ import UIKit
 
 class CatsViewModel {
     @Published var cats = [CatsModelElement]()
+    @Published var catsBD = DataBase.shared.cats
     @Published var data = Data()
     private let imageLoader = ImageLoader()
     @Published var image = UIImage()
-    //var page = 0
-    var fetchingMore = false
     var cancellable: Cancellable?
     private var anyCancelable = Set<AnyCancellable>()
     
     init() {}
     
     
-    func fetchCats(page: Int) {
-        NetworkManager.shared.getResults(page: page)
+    func fetchCats() {
+        NetworkManager.shared.getResults()
             .receive(on: DispatchQueue.main)
             .map{$0}
             .sink { completion in

@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 class FavotitesViewController: UIViewController {
     
     var resultMemoryArray = DataBase.shared.cats
-    
+    let viewModel = CatsViewModel()
+    var anyCancelable = Set<AnyCancellable>()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +47,14 @@ extension FavotitesViewController: UITableViewDelegate, UITableViewDataSource{
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! CatBreedTableViewCell
+        viewModel.$catsBD
+            .receive(on: DispatchQueue.main)
+            .sink { cats in
+                cell.configureCell(with: cats![indexPath.row])
+                cell.configureDB(indexPath: indexPath, result: cats)
+            }
+            .store(in: &anyCancelable)
         
-        cell.configureCell(with: self.resultMemoryArray![indexPath.row])
-        cell.configureDB(indexPath: indexPath, result: resultMemoryArray)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -61,15 +68,25 @@ extension FavotitesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     private func removeFromFavorites(rowIndexPathAt indexPath: IndexPath) -> UIContextualAction{
         let action = UIContextualAction(style: .destructive, title: "Remove from favorites") { [weak self]_, _, _ in
-            
             guard let self = self else {return}
-            var result = self.resultMemoryArray
-            DataBase.shared.deleteSchedule(result: result![indexPath.row], row: indexPath.row)
+//            var result = self.resultMemoryArray
+//            DataBase.shared.deleteSchedule(result: result![indexPath.row], row: indexPath.row)
+//            self.tableView.reloadData()
+            var result = self.viewModel.$catsBD
+                .receive(on: DispatchQueue.main)
+                .sink { cats in
+                    DataBase.shared.deleteSchedule(result: cats![indexPath.row], row: indexPath.row)
+                }
+                .store(in: &self.anyCancelable)
             self.tableView.reloadData()
+
             
         }
         
         return action
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     

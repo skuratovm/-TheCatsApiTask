@@ -19,7 +19,6 @@
 		400BF770279EB2FF003905E0 /* CatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BF76F279EB2FF003905E0 /* CatsModel.swift */; };
 		400BF775279EB43F003905E0 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BF774279EB43F003905E0 /* UserDefaultsManager.swift */; };
 		400BF779279EB94A003905E0 /* FavotitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400BF778279EB94A003905E0 /* FavotitesViewController.swift */; };
-		400BF7B7279F02A6003905E0 /* Cat-18.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 400BF7B6279F02A6003905E0 /* Cat-18.jpeg */; };
 		4027C4F927A0C2A500CF22EE /* CatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027C4F827A0C2A500CF22EE /* CatsViewModel.swift */; };
 		4027C4FB27A0C53500CF22EE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027C4FA27A0C53500CF22EE /* NetworkManager.swift */; };
 		4027C4FF27A17B9D00CF22EE /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027C4FE27A17B9D00CF22EE /* ImageLoader.swift */; };
@@ -42,7 +41,6 @@
 		400BF76F279EB2FF003905E0 /* CatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsModel.swift; sourceTree = "<group>"; };
 		400BF774279EB43F003905E0 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		400BF778279EB94A003905E0 /* FavotitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavotitesViewController.swift; sourceTree = "<group>"; };
-		400BF7B6279F02A6003905E0 /* Cat-18.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Cat-18.jpeg"; path = "../../Cat-18.jpeg"; sourceTree = "<group>"; };
 		40181B7C27A29EF60079CBDF /* Cat-18.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Cat-18.jpeg"; sourceTree = "<group>"; };
 		4027C4F827A0C2A500CF22EE /* CatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsViewModel.swift; sourceTree = "<group>"; };
 		4027C4FA27A0C53500CF22EE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 				40181B7727A29E2C0079CBDF /* Model */,
 				40181B7827A29E4E0079CBDF /* View */,
 				40181B7927A29E5E0079CBDF /* ViewModel */,
-				400BF7B6279F02A6003905E0 /* Cat-18.jpeg */,
 				40181B7A27A29E8A0079CBDF /* Networking */,
 				400BF773279EB3FF003905E0 /* UserDefaultsManager */,
 				40181B7D27A29F1D0079CBDF /* TableViewCell */,
@@ -228,7 +225,6 @@
 			files = (
 				400BF759279EA9A9003905E0 /* LaunchScreen.storyboard in Resources */,
 				400BF756279EA9A9003905E0 /* Assets.xcassets in Resources */,
-				400BF7B7279F02A6003905E0 /* Cat-18.jpeg in Resources */,
 				400BF754279EA9A7003905E0 /* Main.storyboard in Resources */,
 				400BF764279EAF60003905E0 /* CatBreedTableViewCell.xib in Resources */,
 			);
